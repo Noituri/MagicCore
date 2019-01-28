@@ -5,7 +5,7 @@
   "description": "Magic magic magic.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "https://github.com/yknomeh",
+  "url": "https://github.com/yknomeh/MagicCore",
   "updateUrl": "",
   "authorList": ["yknomeh"],
   "credits": "The Forge and FML authors",
