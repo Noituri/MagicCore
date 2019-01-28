@@ -1,0 +1,16 @@
+[
+{
+  "modid": "magiccore",
+  "name": "Magic Core",
+  "description": "Magic magic magic.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/yknomeh",
+  "updateUrl": "",
+  "authorList": ["yknomeh"],
+  "credits": "The Forge and FML authors",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
