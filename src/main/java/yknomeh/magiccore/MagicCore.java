@@ -29,7 +29,7 @@ public class MagicCore
 
     private static Logger logger;
 
-    public static CreativeTabs tabMagicCore = new CreativeTabs("Magic Core") {
+    public static CreativeTabs tabMagicCore = new CreativeTabs(MODID) {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(MagicCoreBlocks.blockMagicHeartOre);

@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import yknomeh.magiccore.common.blocks.BlockMagicHeartOre;
+import yknomeh.magiccore.common.items.ItemMagicHeartShard;
 
 @EventBusSubscriber
 public class CommonProxy {
@@ -37,7 +38,8 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                new ItemBlock(MagicCoreBlocks.blockMagicHeartOre).setRegistryName(BlockMagicHeartOre.RL_MAGIC_HEART_ORE)
+                new ItemBlock(MagicCoreBlocks.blockMagicHeartOre).setRegistryName(BlockMagicHeartOre.RL_MAGIC_HEART_ORE),
+                new ItemMagicHeartShard()
         );
     }
 
