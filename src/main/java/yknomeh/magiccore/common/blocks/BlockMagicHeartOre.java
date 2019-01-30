@@ -15,11 +15,9 @@ import static yknomeh.magiccore.MagicCore.tabMagicCore;
 
 public class BlockMagicHeartOre extends Block {
 
-    public static final ResourceLocation RL_MAGIC_HEART_ORE = new ResourceLocation(MODID, "magic_heart_ore");
-
     public BlockMagicHeartOre() {
         super(Material.ROCK);
-        setRegistryName(RL_MAGIC_HEART_ORE);
+        setRegistryName(new ResourceLocation(MODID, "magic_heart_ore"));
         setUnlocalizedName(MODID + ".magic_heart_ore");
         setHardness(2);
         setHarvestLevel("pickaxe", 2);

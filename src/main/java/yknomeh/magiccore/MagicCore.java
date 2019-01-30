@@ -27,7 +27,7 @@ public class MagicCore
     @Instance(MODID)
     public static MagicCore instance;
 
-    private static Logger logger;
+    public static Logger logger;
 
     public static CreativeTabs tabMagicCore = new CreativeTabs(MODID) {
         @Override
