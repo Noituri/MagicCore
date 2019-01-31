@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import yknomeh.magiccore.common.blocks.BlockMagicHeartOre;
-import yknomeh.magiccore.common.events.EventPickupHandler;
+import yknomeh.magiccore.common.events.EventHandler;
 import yknomeh.magiccore.common.items.ItemMagicHeartShard;
 
 import static yknomeh.magiccore.common.MagicCoreBlocks.blockMagicHeartOre;
@@ -20,7 +20,7 @@ import static yknomeh.magiccore.common.MagicCoreBlocks.blockMagicHeartOre;
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(EventPickupHandler.instance);
+        MinecraftForge.EVENT_BUS.register(EventHandler.instance);
     }
 
     public void init(FMLInitializationEvent event) {

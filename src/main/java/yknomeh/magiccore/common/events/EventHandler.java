@@ -1,18 +1,22 @@
 package yknomeh.magiccore.common.events;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.text.ITextComponent;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
+import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import yknomeh.magiccore.MagicCore;
 
 import java.util.ArrayList;
+import java.util.Random;
 
-public class EventPickupHandler {
+public class EventHandler {
 
-    public static EventPickupHandler instance = new EventPickupHandler();
+    public static EventHandler instance = new EventHandler();
     //Just for debugging
     ArrayList<String> players = new ArrayList();
 
@@ -27,6 +31,24 @@ public class EventPickupHandler {
                     player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
                     players.add(player.getDisplayNameString());
                 }
+                break;
+        }
+    }
+
+    @SubscribeEvent
+    public void onHarvestBlock(HarvestDropsEvent event) {
+        Block block = event.getState().getBlock();
+
+        switch (block.getUnlocalizedName()) {
+            case "tile.bookshelf":
+                Random random = new Random();
+
+                if (random.nextInt(16) == 1) {
+                    // Enchanted book only for debug
+                    // Todo create special book
+                    event.getDrops().add(new ItemStack(Items.ENCHANTED_BOOK));
+                }
+
                 break;
         }
     }
