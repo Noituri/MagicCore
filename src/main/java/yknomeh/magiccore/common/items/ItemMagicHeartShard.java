@@ -12,10 +12,8 @@ import static yknomeh.magiccore.MagicCore.tabMagicCore;
 
 public class ItemMagicHeartShard extends Item {
 
-    public static final ResourceLocation RL_MAGIC_HEART_SHARD = new ResourceLocation(MODID, "magic_heart_shard");
-
     public ItemMagicHeartShard() {
-        setRegistryName(RL_MAGIC_HEART_SHARD);
+        setRegistryName(new ResourceLocation(MODID, "magic_heart_shard"));
         setUnlocalizedName(MODID + ".magic_heart_shard");
         setCreativeTab(tabMagicCore);
     }

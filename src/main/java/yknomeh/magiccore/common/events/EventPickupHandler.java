@@ -1,23 +1,31 @@
 package yknomeh.magiccore.common.events;
 
+import com.mojang.realmsclient.gui.ChatFormatting;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import yknomeh.magiccore.MagicCore;
+
+import java.util.ArrayList;
 
 public class EventPickupHandler {
 
     public static EventPickupHandler instance = new EventPickupHandler();
     //Just for debugging
-    boolean did_player_get_mhs = false;
+    ArrayList<String> players = new ArrayList();
 
     @SubscribeEvent
     public void onPickupItem(EntityItemPickupEvent event) {
 
+        EntityPlayer player =  event.getEntityPlayer();
+
         switch (event.getItem().getItem().getUnlocalizedName()) {
             case "item.magiccore.magic_heart_shard":
-                if (!did_player_get_mhs) {
-                    MagicCore.logger.info("Player picked up \"Magic Heart Shard\" for the first time!");
-                    did_player_get_mhs = true;
+                if (!players.contains(player.getDisplayNameString())) {
+                    player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
+                    players.add(player.getDisplayNameString());
                 }
                 break;
         }
