@@ -1,6 +1,5 @@
 package dreavedir.magiccore.common.gui.overlay;
 
-import dreavedir.magiccore.MagicCore;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
