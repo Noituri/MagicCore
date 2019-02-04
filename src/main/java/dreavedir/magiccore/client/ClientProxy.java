@@ -2,7 +2,7 @@ package dreavedir.magiccore.client;
 
 import dreavedir.magiccore.common.MagicCoreBlocks;
 import dreavedir.magiccore.common.MagicCoreItems;
-import dreavedir.magiccore.common.events.GuiRenderHandler;
+import dreavedir.magiccore.common.events.OverlayRenderHandler;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -20,7 +20,7 @@ public class ClientProxy extends CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
 
-        MinecraftForge.EVENT_BUS.register(GuiRenderHandler.instance);
+        MinecraftForge.EVENT_BUS.register(OverlayRenderHandler.instance);
     }
 
     @Override

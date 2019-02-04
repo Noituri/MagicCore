@@ -1,7 +1,9 @@
 package dreavedir.magiccore.common;
 
+import com.google.common.util.concurrent.ListenableFuture;
 import dreavedir.magiccore.common.blocks.BlockMagicHeartOre;
 import dreavedir.magiccore.common.items.ItemEodenorsBook;
+import dreavedir.magiccore.common.network.Messages;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -15,10 +17,13 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import dreavedir.magiccore.common.events.EventHandler;
 import dreavedir.magiccore.common.items.ItemMagicHeartShard;
 
+import static dreavedir.magiccore.MagicCore.MODID;
+
 @EventBusSubscriber
 public class CommonProxy {
 
     public void preInit(FMLPreInitializationEvent event) {
+        Messages.registerMessages(MODID);
         MinecraftForge.EVENT_BUS.register(EventHandler.instance);
     }
 
@@ -29,6 +34,7 @@ public class CommonProxy {
     public void postInit(FMLPostInitializationEvent event) {
 
     }
+
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {

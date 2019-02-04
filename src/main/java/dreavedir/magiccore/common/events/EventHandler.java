@@ -2,11 +2,11 @@ package dreavedir.magiccore.common.events;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import dreavedir.magiccore.common.MagicCoreItems;
-import dreavedir.magiccore.common.gui.GuiMessages;
+import dreavedir.magiccore.common.network.PacketSendMessage;
+import dreavedir.magiccore.common.network.Messages;
 import net.minecraft.block.Block;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
@@ -31,8 +31,9 @@ public class EventHandler {
         switch (event.getItem().getItem().getUnlocalizedName()) {
             case "item.magiccore.magic_heart_shard":
                 if (!players.contains(player.getDisplayNameString())) {
+                    if (!player.getEntityWorld().isRemote)
+                        Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 1, 2, 2, 1), (EntityPlayerMP) player);
                     player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
-                    new GuiMessages(Minecraft.getMinecraft());
                     players.add(player.getDisplayNameString());
                 }
                 break;
