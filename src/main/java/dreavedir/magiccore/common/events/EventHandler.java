@@ -1,6 +1,7 @@
 package dreavedir.magiccore.common.events;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dreavedir.magiccore.common.MagicCoreItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -43,9 +44,8 @@ public class EventHandler {
                 Random random = new Random();
 
                 if (random.nextInt(16) == 1) {
-                    // Enchanted book only for debug
                     // Todo create special book
-                    event.getDrops().add(new ItemStack(Items.ENCHANTED_BOOK));
+                    event.getDrops().add(new ItemStack(MagicCoreItems.itemEodenorsBook));
                 }
 
                 break;

@@ -13,6 +13,10 @@ import org.apache.logging.log4j.Logger;
 import dreavedir.magiccore.common.CommonProxy;
 import dreavedir.magiccore.common.MagicCoreBlocks;
 
+/*
+    All textures used in this project are temporary
+ */
+
 @Mod(modid = MagicCore.MODID, name = MagicCore.NAME, version = MagicCore.VERSION)
 public class MagicCore
 {

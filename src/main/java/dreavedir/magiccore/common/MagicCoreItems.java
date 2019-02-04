@@ -6,15 +6,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import dreavedir.magiccore.common.items.ItemMagicHeartShard;
 
-import static dreavedir.magiccore.common.utils.ItemsNames.EADENORS_BOOK;
-import static dreavedir.magiccore.common.utils.ItemsNames.MAGIC_HEART_SHARD;
+import static dreavedir.magiccore.common.utils.ItemsNames.*;
 
 public class MagicCoreItems {
 
     @ObjectHolder(MAGIC_HEART_SHARD)
     public static ItemMagicHeartShard itemMagicHeartShard;
 
-    @ObjectHolder(EADENORS_BOOK)
+    @ObjectHolder(EODENORS_BOOK)
     public static ItemEodenorsBook itemEodenorsBook;
 
     @SideOnly(Side.CLIENT)
