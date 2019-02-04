@@ -1,5 +1,7 @@
-package yknomeh.magiccore.common;
+package dreavedir.magiccore.common;
 
+import dreavedir.magiccore.common.blocks.BlockMagicHeartOre;
+import dreavedir.magiccore.common.items.ItemEodenorsBook;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
@@ -10,11 +12,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import yknomeh.magiccore.common.blocks.BlockMagicHeartOre;
-import yknomeh.magiccore.common.events.EventHandler;
-import yknomeh.magiccore.common.items.ItemMagicHeartShard;
-
-import static yknomeh.magiccore.common.MagicCoreBlocks.blockMagicHeartOre;
+import dreavedir.magiccore.common.events.EventHandler;
+import dreavedir.magiccore.common.items.ItemMagicHeartShard;
 
 @EventBusSubscriber
 public class CommonProxy {
@@ -41,8 +40,9 @@ public class CommonProxy {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll(
-                new ItemBlock(blockMagicHeartOre).setRegistryName(blockMagicHeartOre.getRegistryName()),
-                new ItemMagicHeartShard()
+                new ItemBlock(MagicCoreBlocks.blockMagicHeartOre).setRegistryName(MagicCoreBlocks.blockMagicHeartOre.getRegistryName()),
+                new ItemMagicHeartShard(),
+                new ItemEodenorsBook()
         );
     }
 

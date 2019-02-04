@@ -1,4 +1,4 @@
-package yknomeh.magiccore.common.events;
+package dreavedir.magiccore.common.events;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 import net.minecraft.block.Block;
@@ -9,7 +9,6 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import yknomeh.magiccore.MagicCore;
 
 import java.util.ArrayList;
 import java.util.Random;

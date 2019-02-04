@@ -1,4 +1,4 @@
-package yknomeh.magiccore;
+package dreavedir.magiccore;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
@@ -10,8 +10,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import org.apache.logging.log4j.Logger;
-import yknomeh.magiccore.common.CommonProxy;
-import yknomeh.magiccore.common.MagicCoreBlocks;
+import dreavedir.magiccore.common.CommonProxy;
+import dreavedir.magiccore.common.MagicCoreBlocks;
 
 @Mod(modid = MagicCore.MODID, name = MagicCore.NAME, version = MagicCore.VERSION)
 public class MagicCore
@@ -21,7 +21,7 @@ public class MagicCore
     public static final String NAME = "Magic Core";
     public static final String VERSION = "1.0";
 
-    @SidedProxy(clientSide = "yknomeh.magiccore.client.ClientProxy", serverSide = "yknomeh.magiccore.common.CommonProxy")
+    @SidedProxy(clientSide = "dreavedir.magiccore.client.ClientProxy", serverSide = "dreavedir.magiccore.common.CommonProxy")
     public static CommonProxy proxy;
 
     @Instance(MODID)

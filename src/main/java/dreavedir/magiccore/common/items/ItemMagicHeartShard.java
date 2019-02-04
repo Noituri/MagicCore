@@ -1,5 +1,6 @@
-package yknomeh.magiccore.common.items;
+package dreavedir.magiccore.common.items;
 
+import dreavedir.magiccore.MagicCore;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -7,15 +8,12 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static yknomeh.magiccore.MagicCore.MODID;
-import static yknomeh.magiccore.MagicCore.tabMagicCore;
-
 public class ItemMagicHeartShard extends Item {
 
     public ItemMagicHeartShard() {
-        setRegistryName(new ResourceLocation(MODID, "magic_heart_shard"));
-        setUnlocalizedName(MODID + ".magic_heart_shard");
-        setCreativeTab(tabMagicCore);
+        setRegistryName(new ResourceLocation(MagicCore.MODID, "magic_heart_shard"));
+        setUnlocalizedName(MagicCore.MODID + ".magic_heart_shard");
+        setCreativeTab(MagicCore.tabMagicCore);
     }
 
     @SideOnly(Side.CLIENT)
