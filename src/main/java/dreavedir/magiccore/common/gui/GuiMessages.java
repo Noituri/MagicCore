@@ -13,4 +13,5 @@ public class GuiMessages extends Gui {
 
         drawCenteredString(mc.fontRenderer, "Chapter 1", width / 2, (height / 2) - 4, Integer.parseInt("0b9902", 16));
     }
+
 }
