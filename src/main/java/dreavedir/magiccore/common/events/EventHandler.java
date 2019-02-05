@@ -32,7 +32,7 @@ public class EventHandler {
             case "item.magiccore.magic_heart_shard":
                 if (!players.contains(player.getDisplayNameString())) {
                     if (!player.getEntityWorld().isRemote)
-                        Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 800, 2, 2, 1), (EntityPlayerMP) player);
+                        Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 500, 2, 2, 1), (EntityPlayerMP) player);
                     player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
                     players.add(player.getDisplayNameString());
                 }

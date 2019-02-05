@@ -16,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import dreavedir.magiccore.common.events.EventHandler;
 import dreavedir.magiccore.common.items.ItemMagicHeartShard;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 import static dreavedir.magiccore.MagicCore.MODID;
 
@@ -25,6 +26,7 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Messages.registerMessages(MODID);
         MinecraftForge.EVENT_BUS.register(EventHandler.instance);
+        GameRegistry.registerWorldGenerator(WorldGen.INSTANCE, 4);
     }
 
     public void init(FMLInitializationEvent event) {
