@@ -15,6 +15,8 @@ import dreavedir.magiccore.common.MagicCoreBlocks;
 
 /*
     All textures used in this project are temporary
+
+    Some textures are temp taken from Pumpkin Patch
  */
 
 @Mod(modid = MagicCore.MODID, name = MagicCore.NAME, version = MagicCore.VERSION)

@@ -16,6 +16,8 @@ public class OverlayRenderHandler {
     private int scaleY = 1;
     private int scaleZ = 1;
 
+    private int tick = 0;
+
     private Boolean showMessage = false;
 
     public void showMessage(String message, String submessage, int time, int scaleX, int scaleY, int scaleZ) {
@@ -31,10 +33,14 @@ public class OverlayRenderHandler {
 
     @SubscribeEvent
     public void onRenderGui(RenderGameOverlayEvent.Text event) {
-        if (event.getType() == RenderGameOverlayEvent.ElementType.EXPERIENCE || !showMessage)
+        if (event.getType() == RenderGameOverlayEvent.ElementType.EXPERIENCE )
             return;
 
-        new TitleMessages(Minecraft.getMinecraft(), message, submessage, time, scaleX, scaleY, scaleZ);
+        if (showMessage) {
+            new TitleMessages(Minecraft.getMinecraft(), message, submessage, time, tick++, event.getPartialTicks(), scaleX, scaleY, scaleZ);
+            time--;
+        }
+
 
 //        showMessage = false;
     }
