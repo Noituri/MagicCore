@@ -1,7 +1,6 @@
 package dreavedir.magiccore.common.events;
 
-import dreavedir.magiccore.MagicCore;
-import dreavedir.magiccore.common.gui.overlay.TitleMessages;
+import dreavedir.magiccore.client.gui.overlay.TitleMessages;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
