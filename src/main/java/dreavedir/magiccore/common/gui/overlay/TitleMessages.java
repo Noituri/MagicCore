@@ -15,6 +15,8 @@ public class TitleMessages extends Gui {
         int width = scaledResolution.getScaledWidth();
         int height = 0;
 
+        time -= tick;
+
         if (time > 0) {
 
             float f2 = (float) time - partialTicks;

@@ -1,5 +1,6 @@
 package dreavedir.magiccore.common.events;
 
+import dreavedir.magiccore.MagicCore;
 import dreavedir.magiccore.common.gui.overlay.TitleMessages;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
@@ -28,6 +29,7 @@ public class OverlayRenderHandler {
         this.scaleZ = scaleZ;
         this.submessage = submessage;
 
+        tick = 0;
         showMessage = true;
     }
 
@@ -38,10 +40,9 @@ public class OverlayRenderHandler {
 
         if (showMessage) {
             new TitleMessages(Minecraft.getMinecraft(), message, submessage, time, tick++, event.getPartialTicks(), scaleX, scaleY, scaleZ);
-            time--;
+            if (tick == time) {
+                showMessage = false;
+            }
         }
-
-
-//        showMessage = false;
     }
 }
