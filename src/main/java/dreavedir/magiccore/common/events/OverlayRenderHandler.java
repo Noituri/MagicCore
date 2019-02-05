@@ -39,7 +39,7 @@ public class OverlayRenderHandler {
 
         if (showMessage) {
             new TitleMessages(Minecraft.getMinecraft(), message, submessage, time, tick++, event.getPartialTicks(), scaleX, scaleY, scaleZ);
-            if (tick == time) {
+            if (tick >= time) {
                 showMessage = false;
             }
         }
