@@ -37,7 +37,7 @@ public class TitleMessages extends Gui {
                 GL11.glScalef(scaleX, scaleY ,scaleZ);
                 GlStateManager.enableBlend();
                 GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-                drawCenteredString(mc.fontRenderer, message, (width / 2) / scaleX, ((height / 2) - 25 * scaleY) / scaleY, color + (l1 << 24 & -color));
+                mc.fontRenderer.drawString(message, (width / 2) / scaleX - mc.fontRenderer.getStringWidth(message) / 2, ((height / 2) - 25 * scaleY) / scaleY, color + (l1 << 24 & -color));
                 GlStateManager.disableBlend();
                 GL11.glPopMatrix();
 
