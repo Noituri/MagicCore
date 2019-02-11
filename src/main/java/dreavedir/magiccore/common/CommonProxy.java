@@ -1,6 +1,5 @@
 package dreavedir.magiccore.common;
 
-import com.google.common.util.concurrent.ListenableFuture;
 import dreavedir.magiccore.common.blocks.BlockMagicHeartOre;
 import dreavedir.magiccore.common.chapters.Chapters;
 import dreavedir.magiccore.common.chapters.IChapters;
@@ -8,6 +7,7 @@ import dreavedir.magiccore.common.events.CapabilityEventHandler;
 import dreavedir.magiccore.common.items.ItemEodenorsBook;
 import dreavedir.magiccore.common.network.Messages;
 import dreavedir.magiccore.common.storage.ChaptersStorage;
+import dreavedir.magiccore.common.worldgen.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;

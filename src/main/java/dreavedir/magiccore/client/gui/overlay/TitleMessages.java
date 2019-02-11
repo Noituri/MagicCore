@@ -1,5 +1,7 @@
 package dreavedir.magiccore.client.gui.overlay;
 
+import dreavedir.magiccore.MagicCore;
+import dreavedir.magiccore.common.config.ModConfig;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.ScaledResolution;
@@ -12,7 +14,7 @@ public class TitleMessages extends Gui {
         ScaledResolution scaledResolution = new ScaledResolution(mc);
 
         int width = scaledResolution.getScaledWidth();
-        int height = 0;
+        int height = (int) (scaledResolution.getScaledHeight() );
 
         time -= tick;
 
@@ -20,7 +22,7 @@ public class TitleMessages extends Gui {
 
             float f2 = (float) time - partialTicks;
             int l1 = (int) (f2 * 255.0F / 20.0F);
-            int color = Integer.parseInt("0b9902", 16);
+            int color = Integer.parseInt(ModConfig.THEME_COLOR, 16);
 
             if (l1 > 255) {
                 l1 = 255;
@@ -28,16 +30,18 @@ public class TitleMessages extends Gui {
 
             if (l1 > 8) {
 
-                if (tick < 300)
-                    height += easeOut(tick, 0, scaledResolution.getScaledHeight(), 300);
-                else height += easeOut(300, 0, scaledResolution.getScaledHeight(), 300);
+                    //TODO idk I am tired. I'll make this animation later...
+
+//                if (tick < time / 2)
+//                    height += easeOut(tick, 0, scaledResolution.getScaledHeight(), time / 2);
+//                else height += easeOut(time / 2, 0, scaledResolution.getScaledHeight(), time / 2);
 
                 // Title
                 GL11.glPushMatrix();
                 GL11.glScalef(scaleX, scaleY ,scaleZ);
                 GlStateManager.enableBlend();
                 GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-                mc.fontRenderer.drawString(message, (width / 2) / scaleX - mc.fontRenderer.getStringWidth(message) / 2, ((height / 2) - 25 * scaleY) / scaleY, color + (l1 << 24 & -color));
+                mc.fontRenderer.drawStringWithShadow(message, (width / 2) / scaleX - mc.fontRenderer.getStringWidth(message) / 2, ((height / 2) - 25 * scaleY) / scaleY, color + (l1 << 24 & -color));
                 GlStateManager.disableBlend();
                 GL11.glPopMatrix();
 
@@ -46,7 +50,7 @@ public class TitleMessages extends Gui {
                 GL11.glScalef(scaleX / 2, scaleY / 2, scaleZ);
                 GlStateManager.enableBlend();
                 GlStateManager.tryBlendFuncSeparate(GlStateManager.SourceFactor.SRC_ALPHA, GlStateManager.DestFactor.ONE_MINUS_SRC_ALPHA, GlStateManager.SourceFactor.ONE, GlStateManager.DestFactor.ZERO);
-                mc.fontRenderer.drawString(submessage, (width / 2) / (scaleX / 2) - mc.fontRenderer.getStringWidth(submessage) / 2, ((height / 2) - (25 * (scaleY / 2) )) / (int)((float) scaleY / 2),  color + (l1 << 24 & -color));
+                mc.fontRenderer.drawStringWithShadow(submessage, (width / 2) / (scaleX / 2) - mc.fontRenderer.getStringWidth(submessage) / 2, ((height / 2) - (25 * (scaleY / 2) )) / (int)((float) scaleY / 2),  color + (l1 << 24 & -color));
                 GlStateManager.disableBlend();
                 GL11.glPopMatrix();
             }

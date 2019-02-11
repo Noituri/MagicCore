@@ -1,9 +1,11 @@
 package dreavedir.magiccore.common.events;
 
+import dreavedir.magiccore.MagicCore;
 import dreavedir.magiccore.client.gui.overlay.TitleMessages;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.TickEvent;
 
 public class OverlayRenderHandler {
 
@@ -38,10 +40,15 @@ public class OverlayRenderHandler {
             return;
 
         if (showMessage) {
-            new TitleMessages(Minecraft.getMinecraft(), message, submessage, time, tick++, event.getPartialTicks(), scaleX, scaleY, scaleZ);
-            if (tick >= time) {
-                showMessage = false;
-            }
+            new TitleMessages(Minecraft.getMinecraft(), message, submessage, time, tick, event.getPartialTicks(), scaleX, scaleY, scaleZ);
+//            if (tick >= time) {
+//                showMessage = false;
+//            }
         }
+    }
+
+    @SubscribeEvent
+    public void onClientTick(TickEvent.ClientTickEvent event) {
+        tick++;
     }
 }

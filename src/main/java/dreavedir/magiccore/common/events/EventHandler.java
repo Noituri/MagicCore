@@ -28,6 +28,7 @@ public class EventHandler {
     public void onPickupItem(EntityItemPickupEvent event) {
 
         EntityPlayer player =  event.getEntityPlayer();
+        if (player == null) return;
         if (player.getEntityWorld().isRemote) return;
 
         IChapters chapters = player.getCapability(ChaptersProvider.CHAPTERS_CAPABILITY, null);
@@ -35,7 +36,7 @@ public class EventHandler {
         switch (event.getItem().getItem().getTranslationKey()) {
             case "item.magiccore.magic_heart_shard":
                 if (chapters.getCurrentChapter() == 0) {
-                    Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 500, 2, 2, 1), (EntityPlayerMP) player);
+                    Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 100, 2, 2, 1), (EntityPlayerMP) player);
                     player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
                     chapters.setCurrentChapter(1);
                 }
@@ -46,6 +47,7 @@ public class EventHandler {
     @SubscribeEvent
     public void onHarvestBlock(HarvestDropsEvent event) {
         EntityPlayer player =  event.getHarvester();
+        if (player == null) return;
         if (player.getEntityWorld().isRemote) return;
 
         IChapters chapters = player.getCapability(ChaptersProvider.CHAPTERS_CAPABILITY, null);
@@ -68,6 +70,7 @@ public class EventHandler {
     @SubscribeEvent
     public void onPlayerClone(PlayerEvent.Clone event) {
         EntityPlayer player = event.getEntityPlayer();
+        if (player == null) return;
         IChapters chapters = player.getCapability(ChaptersProvider.CHAPTERS_CAPABILITY, null);
         IChapters oldChapters = event.getOriginal().getCapability(ChaptersProvider.CHAPTERS_CAPABILITY, null);
 
