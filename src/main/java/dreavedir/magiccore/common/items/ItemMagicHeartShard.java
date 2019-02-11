@@ -12,7 +12,7 @@ public class ItemMagicHeartShard extends Item {
 
     public ItemMagicHeartShard() {
         setRegistryName(new ResourceLocation(MagicCore.MODID, "magic_heart_shard"));
-        setUnlocalizedName(MagicCore.MODID + ".magic_heart_shard");
+        setTranslationKey(MagicCore.MODID + ".magic_heart_shard");
         setCreativeTab(MagicCore.tabMagicCore);
     }
 

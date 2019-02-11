@@ -3,6 +3,7 @@ package dreavedir.magiccore.common.events;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import dreavedir.magiccore.common.MagicCoreItems;
 import dreavedir.magiccore.common.chapters.IChapters;
+import dreavedir.magiccore.common.config.ModConfig;
 import dreavedir.magiccore.common.network.PacketSendMessage;
 import dreavedir.magiccore.common.network.Messages;
 import dreavedir.magiccore.common.storage.provider.ChaptersProvider;
@@ -31,7 +32,7 @@ public class EventHandler {
 
         IChapters chapters = player.getCapability(ChaptersProvider.CHAPTERS_CAPABILITY, null);
 
-        switch (event.getItem().getItem().getUnlocalizedName()) {
+        switch (event.getItem().getItem().getTranslationKey()) {
             case "item.magiccore.magic_heart_shard":
                 if (chapters.getCurrentChapter() == 0) {
                     Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 500, 2, 2, 1), (EntityPlayerMP) player);
@@ -51,12 +52,12 @@ public class EventHandler {
 
         Block block = event.getState().getBlock();
 
-        switch (block.getUnlocalizedName()) {
+        switch (block.getTranslationKey()) {
             case "tile.bookshelf":
                 if (chapters.getCurrentChapter() == 0) break;
                 Random random = new Random();
 
-                if (random.nextInt(16) == 1) {
+                if (random.nextInt(ModConfig.DROP_RATE_EODEONRS_BOOK) == 1) {
                     event.getDrops().add(new ItemStack(MagicCoreItems.itemEodenorsBook));
                 }
 

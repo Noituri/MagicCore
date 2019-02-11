@@ -1,5 +1,6 @@
 package dreavedir.magiccore.common;
 
+import dreavedir.magiccore.common.config.ModConfig;
 import dreavedir.magiccore.common.utils.Dimensions;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -28,9 +29,9 @@ public class WorldGen implements IWorldGenerator {
                 break;
             case Dimensions.OVERWORLD:
                 runGenerator(
-                        7,
-                        12,
-                        20,
+                        ModConfig.GEN_RATE_MAGIC_HEART_ORE,
+                        ModConfig.GEN_MIN_HEIGHT_MAGIC_HEART_ORE,
+                        ModConfig.GEN_MAX_HEIGHT_MAGIC_HEART_ORE,
                         world,
                         random,
                         chunkX,
@@ -47,7 +48,7 @@ public class WorldGen implements IWorldGenerator {
     private void runGenerator(int rates, int minHeight, int maxHeight, World world, Random random, int chunkX, int chunkZ ) {
         if (minHeight > maxHeight || minHeight < 0 || maxHeight > 256) return;
 
-        WorldGenMinable magicHeartOre = new WorldGenMinable(MagicCoreBlocks.blockMagicHeartOre.getDefaultState(), 3, BlockMatcher.forBlock(Blocks.STONE));
+        WorldGenMinable magicHeartOre = new WorldGenMinable(MagicCoreBlocks.blockMagicHeartOre.getDefaultState(), ModConfig.GEN_AMOUNT_MAGIC_HEART_ORE, BlockMatcher.forBlock(Blocks.STONE));
 
         for (int i = 0; i < rates; i++) {
             int x = chunkX * 16 + random.nextInt(16);

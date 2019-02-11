@@ -15,7 +15,7 @@ public class ItemEodenorsBook extends Item {
 
     public ItemEodenorsBook() {
         setRegistryName(new ResourceLocation(MODID, "eodenors_book"));
-        setUnlocalizedName(MODID + ".eodenors_book");
+        setTranslationKey(MODID + ".eodenors_book");
         setCreativeTab(MagicCore.tabMagicCore);
         setMaxStackSize(1);
     }

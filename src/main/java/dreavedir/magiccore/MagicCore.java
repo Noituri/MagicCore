@@ -37,7 +37,7 @@ public class MagicCore
 
     public static CreativeTabs tabMagicCore = new CreativeTabs(MODID) {
         @Override
-        public ItemStack getTabIconItem() {
+        public ItemStack createIcon() {
             return new ItemStack(MagicCoreBlocks.blockMagicHeartOre);
         }
     };

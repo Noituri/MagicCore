@@ -19,7 +19,7 @@ public class BlockMagicHeartOre extends Block {
     public BlockMagicHeartOre() {
         super(Material.ROCK);
         setRegistryName(new ResourceLocation(MagicCore.MODID, "magic_heart_ore"));
-        setUnlocalizedName(MagicCore.MODID + ".magic_heart_ore");
+        setTranslationKey(MagicCore.MODID + ".magic_heart_ore");
         setHardness(2);
         setHarvestLevel("pickaxe", 2);
         setCreativeTab(MagicCore.tabMagicCore);
