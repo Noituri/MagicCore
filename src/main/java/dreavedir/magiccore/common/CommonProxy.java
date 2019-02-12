@@ -33,6 +33,7 @@ public class CommonProxy {
         MinecraftForge.EVENT_BUS.register(CapabilityEventHandler.instance);
         MinecraftForge.EVENT_BUS.register(EventHandler.instance);
         GameRegistry.registerWorldGenerator(WorldGen.INSTANCE, 4);
+        MagicCoreEntities.init();
     }
 
     public void init(FMLInitializationEvent event) {

@@ -14,7 +14,7 @@ public class TitleMessages extends Gui {
         ScaledResolution scaledResolution = new ScaledResolution(mc);
 
         int width = scaledResolution.getScaledWidth();
-        int height = (int) (scaledResolution.getScaledHeight() );
+        int height = scaledResolution.getScaledHeight();
 
         time -= tick;
 

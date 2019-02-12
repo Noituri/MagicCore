@@ -1,6 +1,7 @@
 package dreavedir.magiccore.client;
 
 import dreavedir.magiccore.common.MagicCoreBlocks;
+import dreavedir.magiccore.common.MagicCoreEntities;
 import dreavedir.magiccore.common.MagicCoreItems;
 import dreavedir.magiccore.common.events.OverlayRenderHandler;
 import net.minecraftforge.client.event.ModelRegistryEvent;
@@ -37,6 +38,7 @@ public class ClientProxy extends CommonProxy {
     public static void registerModels(ModelRegistryEvent event) {
         MagicCoreBlocks.initModels();
         MagicCoreItems.initModels();
+        MagicCoreEntities.initModels();
     }
 
 }
