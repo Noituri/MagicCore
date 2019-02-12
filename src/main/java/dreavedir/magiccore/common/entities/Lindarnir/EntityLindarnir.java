@@ -25,7 +25,7 @@ public class EntityLindarnir extends EntityCreature implements IEntityOwnable {
 
     @Override
     protected void initEntityAI() {
-        this.tasks.addTask(1, new LindarnirAIFollow(this, 1.0D, 10.0F, 2));
+        this.tasks.addTask(1, new LindarnirAIFollow(this, 0.5D, 10.0F, 2));
         this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
     }
 
@@ -34,7 +34,6 @@ public class EntityLindarnir extends EntityCreature implements IEntityOwnable {
         super.applyEntityAttributes();
 
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(60.0D);
     }
 
     @Override

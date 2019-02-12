@@ -37,7 +37,7 @@ public class EventHandler {
 
         switch (event.getItem().getItem().getTranslationKey()) {
             case "item.magiccore.magic_heart_shard":
-                if (chapters.getCurrentChapter() != 0) {
+                if (chapters.getCurrentChapter() == 0) {
                     Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 100, 2, 2, 1), (EntityPlayerMP) player);
                     player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
 
