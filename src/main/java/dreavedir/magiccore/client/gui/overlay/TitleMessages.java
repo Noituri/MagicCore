@@ -22,7 +22,7 @@ public class TitleMessages extends Gui {
 
             float f2 = (float) time - partialTicks;
             int l1 = (int) (f2 * 255.0F / 20.0F);
-            int color = Integer.parseInt(ModConfig.THEME_COLOR, 16);
+            int color = Integer.parseInt(ModConfig.mainConfig.THEME_COLOR, 16);
 
             if (l1 > 255) {
                 l1 = 255;

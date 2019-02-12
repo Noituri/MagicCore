@@ -1,6 +1,6 @@
 package dreavedir.magiccore.common.worldgen;
 
-import dreavedir.magiccore.common.config.OreGenConfig;
+import dreavedir.magiccore.common.config.ModConfig;
 import dreavedir.magiccore.common.utils.Dimensions;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -24,9 +24,9 @@ public class WorldGen implements IWorldGenerator {
                 break;
             case Dimensions.OVERWORLD:
                 MagicHeartOre.generate(
-                        OreGenConfig.GEN_RATE_MAGIC_HEART_ORE,
-                        OreGenConfig.GEN_MIN_HEIGHT_MAGIC_HEART_ORE,
-                        OreGenConfig.GEN_MAX_HEIGHT_MAGIC_HEART_ORE,
+                        ModConfig.oreGenConfig.GEN_RATE_MAGIC_HEART_ORE,
+                        ModConfig.oreGenConfig.GEN_MIN_HEIGHT_MAGIC_HEART_ORE,
+                        ModConfig.oreGenConfig.GEN_MAX_HEIGHT_MAGIC_HEART_ORE,
                         world,
                         random,
                         chunkX,
