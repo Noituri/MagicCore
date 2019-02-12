@@ -1,5 +1,6 @@
 package dreavedir.magiccore.common.entities.Lindarnir;
 
+import dreavedir.magiccore.common.storage.provider.LindarnirProvider;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -44,7 +45,8 @@ public class LindarnirAIFollow extends EntityAIBase {
      * Returns whether the EntityAIBase should begin execution.
      */
     public boolean shouldExecute() {
-        Entity entitylivingbase = this.entityLindarnir.getOwner();
+        ILindarnir iLindarnir = entityLindarnir.getCapability(LindarnirProvider.ILANDIR_CAPABILITY, null);
+        Entity entitylivingbase = iLindarnir.getOwnerUUID() != null ? world.getPlayerEntityByUUID(iLindarnir.getOwnerUUID()) : null;
 
         if (entitylivingbase == null) {
             return false;

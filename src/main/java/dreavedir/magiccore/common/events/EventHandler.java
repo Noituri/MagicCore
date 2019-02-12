@@ -6,9 +6,11 @@ import dreavedir.magiccore.common.chapters.IChapters;
 import dreavedir.magiccore.common.config.ItemsConfig;
 import dreavedir.magiccore.common.config.ModConfig;
 import dreavedir.magiccore.common.entities.Lindarnir.EntityLindarnir;
+import dreavedir.magiccore.common.entities.Lindarnir.ILindarnir;
 import dreavedir.magiccore.common.network.PacketSendMessage;
 import dreavedir.magiccore.common.network.Messages;
 import dreavedir.magiccore.common.storage.provider.ChaptersProvider;
+import dreavedir.magiccore.common.storage.provider.LindarnirProvider;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -37,18 +39,19 @@ public class EventHandler {
 
         switch (event.getItem().getItem().getTranslationKey()) {
             case "item.magiccore.magic_heart_shard":
-                if (chapters.getCurrentChapter() == 0) {
+//                if (chapters.getCurrentChapter() == 0) {
                     Messages.INSTANCE.sendTo(new PacketSendMessage("Chapter I", "Beginning of new adventure", 100, 2, 2, 1), (EntityPlayerMP) player);
                     player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "When you picked up Magic Heart Shard you started to feel power surge. You don't know what happened but you feel in your gut that this is beginning of new adventure."));
 
                     EntityLindarnir lindarnir = new EntityLindarnir(player.getEntityWorld());
+                    ILindarnir iLindarnir = lindarnir.getCapability(LindarnirProvider.ILANDIR_CAPABILITY, null);
                     lindarnir.setPosition(player.posX, player.posY, player.posZ - 2);
-                    lindarnir.setOwner(player);
+                    iLindarnir.setOwnerUID(player.getUniqueID());
                     lindarnir.setOwnerID(player.getUniqueID());
                     player.getEntityWorld().spawnEntity(lindarnir);
 
                     chapters.setCurrentChapter(1);
-                }
+//                }
                 break;
         }
     }
@@ -86,7 +89,6 @@ public class EventHandler {
         chapters.setCurrentChapter(oldChapters.getCurrentChapter());
     }
 
-    // TODO not sure if I need that below... so I will check it later
 //    @SubscribeEvent
 //    public void onEntityHurt(LivingHurtEvent event) {
 //        if (event.getEntityLiving() instanceof EntityLindarnir)

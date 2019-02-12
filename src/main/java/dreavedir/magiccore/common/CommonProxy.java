@@ -3,10 +3,13 @@ package dreavedir.magiccore.common;
 import dreavedir.magiccore.common.blocks.BlockMagicHeartOre;
 import dreavedir.magiccore.common.chapters.Chapters;
 import dreavedir.magiccore.common.chapters.IChapters;
+import dreavedir.magiccore.common.entities.Lindarnir.ILindarnir;
+import dreavedir.magiccore.common.entities.Lindarnir.LindarnirDefaults;
 import dreavedir.magiccore.common.events.CapabilityEventHandler;
 import dreavedir.magiccore.common.items.ItemEodenorsBook;
 import dreavedir.magiccore.common.network.Messages;
 import dreavedir.magiccore.common.storage.ChaptersStorage;
+import dreavedir.magiccore.common.storage.LindarnirStorage;
 import dreavedir.magiccore.common.worldgen.WorldGen;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -38,6 +41,7 @@ public class CommonProxy {
 
     public void init(FMLInitializationEvent event) {
         CapabilityManager.INSTANCE.register(IChapters.class, new ChaptersStorage(), Chapters.class);
+        CapabilityManager.INSTANCE.register(ILindarnir.class, new LindarnirStorage(), LindarnirDefaults.class);
     }
 
     public void postInit(FMLPostInitializationEvent event) {
