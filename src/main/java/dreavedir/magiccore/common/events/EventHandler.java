@@ -3,7 +3,7 @@ package dreavedir.magiccore.common.events;
 import com.mojang.realmsclient.gui.ChatFormatting;
 import dreavedir.magiccore.common.MagicCoreItems;
 import dreavedir.magiccore.common.chapters.IChapters;
-import dreavedir.magiccore.common.config.ModConfig;
+import dreavedir.magiccore.common.config.ItemsConfig;
 import dreavedir.magiccore.common.network.PacketSendMessage;
 import dreavedir.magiccore.common.network.Messages;
 import dreavedir.magiccore.common.storage.provider.ChaptersProvider;
@@ -17,7 +17,6 @@ import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-import java.util.ArrayList;
 import java.util.Random;
 
 public class EventHandler {
@@ -59,7 +58,7 @@ public class EventHandler {
                 if (chapters.getCurrentChapter() == 0) break;
                 Random random = new Random();
 
-                if (random.nextInt(ModConfig.DROP_RATE_EODEONRS_BOOK) == 1) {
+                if (random.nextInt(ItemsConfig.DROP_RATE_EODEONRS_BOOK) == 1) {
                     event.getDrops().add(new ItemStack(MagicCoreItems.itemEodenorsBook));
                 }
 
