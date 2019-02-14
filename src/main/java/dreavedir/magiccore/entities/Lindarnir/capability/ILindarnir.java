@@ -1,4 +1,4 @@
-package dreavedir.magiccore.entities.Lindarnir;
+package dreavedir.magiccore.entities.Lindarnir.capability;
 
 import java.util.UUID;
 

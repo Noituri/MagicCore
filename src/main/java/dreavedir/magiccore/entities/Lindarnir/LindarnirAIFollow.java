@@ -1,5 +1,6 @@
 package dreavedir.magiccore.entities.Lindarnir;
 
+import dreavedir.magiccore.entities.Lindarnir.capability.ILindarnir;
 import dreavedir.magiccore.storage.provider.LindarnirProvider;
 import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
@@ -34,10 +35,6 @@ public class LindarnirAIFollow extends EntityAIBase {
         this.minDist = minDistIn;
         this.maxDist = maxDistIn;
         this.setMutexBits(3);
-
-        if (!(entityLindarnir.getNavigator() instanceof PathNavigateGround) && !(entityLindarnir.getNavigator() instanceof PathNavigateFlying)) {
-            throw new IllegalArgumentException("Unsupported mob type for FollowOwnerGoal");
-        }
     }
 
     /**

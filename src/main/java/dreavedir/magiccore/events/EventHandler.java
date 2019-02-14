@@ -5,7 +5,7 @@ import dreavedir.magiccore.init.MagicCoreItems;
 import dreavedir.magiccore.chapters.IChapters;
 import dreavedir.magiccore.config.ModConfig;
 import dreavedir.magiccore.entities.Lindarnir.EntityLindarnir;
-import dreavedir.magiccore.entities.Lindarnir.ILindarnir;
+import dreavedir.magiccore.entities.Lindarnir.capability.ILindarnir;
 import dreavedir.magiccore.network.PacketSendMessage;
 import dreavedir.magiccore.network.Messages;
 import dreavedir.magiccore.storage.provider.ChaptersProvider;

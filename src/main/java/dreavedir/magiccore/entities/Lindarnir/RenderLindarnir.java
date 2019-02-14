@@ -19,7 +19,7 @@ public class RenderLindarnir extends RenderLiving<EntityLindarnir> {
 
     @Override
     protected ResourceLocation getEntityTexture(EntityLindarnir entity) {
-        return new ResourceLocation("magiccore:textures/entity/fordebug.png");
+        return new ResourceLocation("magiccore:textures/entity/lindarnir.png");
     }
 
     public static class Factory implements IRenderFactory<EntityLindarnir> {

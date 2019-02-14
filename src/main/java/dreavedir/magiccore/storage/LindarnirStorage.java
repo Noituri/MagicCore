@@ -1,6 +1,6 @@
 package dreavedir.magiccore.storage;
 
-import dreavedir.magiccore.entities.Lindarnir.ILindarnir;
+import dreavedir.magiccore.entities.Lindarnir.capability.ILindarnir;
 import net.minecraft.nbt.*;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.common.capabilities.Capability;
