@@ -47,6 +47,8 @@ public class EventHandler {
                     iLindarnir.setOwnerUID(player.getUniqueID());
                     lindarnir.setOwnerID(player.getUniqueID());
 
+                    player.getEntityWorld().spawnEntity(lindarnir);
+
                     chapters.setCurrentChapter(1);
 //                }
                 break;
