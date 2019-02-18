@@ -35,7 +35,7 @@ public class EntityLindarnir extends EntityCreature {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.getBlockPathWeight(new BlockPos(this.posX, this.getEntityBoundingBox().minY, this.posZ)) >= 0.0F && this.worldIn.provider.getDimension() == Dimensions.OVERWORLD;
+        return true;
     }
 
     @Nullable
