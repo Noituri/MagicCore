@@ -1,6 +1,0 @@
-{
-  "parent": "item/generated",
-  "textures": {
-    "layer0": "magiccore:items/magic_heart_shard"
-  }
-}
