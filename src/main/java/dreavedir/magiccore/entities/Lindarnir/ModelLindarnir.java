@@ -3,6 +3,7 @@ package dreavedir.magiccore.entities.Lindarnir;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
 
 /**
  * Lindarnir - Dreavedir
@@ -184,11 +185,11 @@ public class ModelLindarnir extends ModelBase {
         this.staff_body.addChild(this.staff_body_decor);
         this.staff_body.addChild(this.staff_head);
         this.staff_body.addChild(this.staff_body_decor_2);
+        this.arm_right.addChild(this.staff_body);
     }
 
     @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
-        this.staff_body.render(f5);
         this.arm_left.render(f5);
         this.leg_right.render(f5);
         this.head.render(f5);
@@ -205,5 +206,25 @@ public class ModelLindarnir extends ModelBase {
         modelRenderer.rotateAngleX = x;
         modelRenderer.rotateAngleY = y;
         modelRenderer.rotateAngleZ = z;
+    }
+
+    @Override
+    public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+        this.head.rotateAngleY = netHeadYaw * 0.017453292F;
+        this.hat1.rotateAngleY = this.head.rotateAngleY;
+
+        this.leg_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 1.4F * limbSwingAmount;
+        this.leg_right.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 1.4F * limbSwingAmount;
+        this.leg_left.rotateAngleY = 0.0F;
+        this.leg_right.rotateAngleY = 0.0F;
+        this.leg_left.rotateAngleZ = 0.0F;
+        this.leg_right.rotateAngleZ = 0.0F;
+
+        this.body.rotateAngleY = 0.0F;
+
+        this.arm_right.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F + (float)Math.PI) * 2.0F * limbSwingAmount * 0.5F;
+        this.arm_left.rotateAngleX = MathHelper.cos(limbSwing * 0.6662F) * 2.0F * limbSwingAmount * 0.5F;
+        this.arm_right.rotateAngleZ = 0.0F;
+        this.arm_left.rotateAngleZ = 0.0F;
     }
 }
