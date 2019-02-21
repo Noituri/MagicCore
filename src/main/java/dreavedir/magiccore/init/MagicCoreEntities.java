@@ -14,7 +14,7 @@ import static dreavedir.magiccore.utils.EntitiesNames.LINDARNIR;
 public class MagicCoreEntities {
     public static void init() {
         int id = 1;
-        registerEntity(EntityLindarnir.class, LINDARNIR, id++);
+        registerEntity(EntityLindarnir.class, LINDARNIR, 10000, id++);
     }
 
     private static void registerEntity(Class entityClass, String entityName, String primaryColor, String secondaryColor, int id) {
@@ -26,7 +26,7 @@ public class MagicCoreEntities {
                 MagicCore.instance,
                 64,
                 3,
-                true,
+                false,
                 Integer.parseInt(primaryColor, 16),
                 Integer.parseInt(secondaryColor, 16)
         );
@@ -41,7 +41,20 @@ public class MagicCoreEntities {
                 MagicCore.instance,
                 64,
                 3,
-                true
+                false
+        );
+    }
+
+    private static void registerEntity(Class entityClass, String entityName, int trackingRange, int id) {
+        EntityRegistry.registerModEntity(
+                new ResourceLocation(MagicCore.MODID, entityName),
+                entityClass,
+                entityName,
+                id,
+                MagicCore.instance,
+                trackingRange,
+                3,
+                false
         );
     }
 

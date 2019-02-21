@@ -1,6 +1,7 @@
 package dreavedir.magiccore.events;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
+import dreavedir.magiccore.MagicCore;
 import dreavedir.magiccore.init.MagicCoreItems;
 import dreavedir.magiccore.chapters.IChapters;
 import dreavedir.magiccore.config.ModConfig;
@@ -11,9 +12,13 @@ import dreavedir.magiccore.network.Messages;
 import dreavedir.magiccore.storage.provider.ChaptersProvider;
 import dreavedir.magiccore.storage.provider.LindarnirProvider;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -43,9 +48,12 @@ public class EventHandler {
 
                     EntityLindarnir lindarnir = new EntityLindarnir(player.getEntityWorld());
                     ILindarnir iLindarnir = lindarnir.getCapability(LindarnirProvider.ILANDIR_CAPABILITY, null);
-                    lindarnir.setPosition(player.posX, player.posY, player.posZ - 2);
                     iLindarnir.setOwnerUID(player.getUniqueID());
                     lindarnir.setOwnerID(player.getUniqueID());
+                    lindarnir.setLocationAndAngles(player.posX, player.posY, player.posZ - 2, MathHelper.wrapDegrees(player.getEntityWorld().rand.nextInt() * 360.0F), 0.0F);
+                    lindarnir.rotationYawHead = lindarnir.rotationYaw;
+                    lindarnir.renderYawOffset = lindarnir.rotationYaw;
+                    lindarnir.onInitialSpawn(player.getEntityWorld().getDifficultyForLocation(new BlockPos(lindarnir)), null);
 
                     player.getEntityWorld().spawnEntity(lindarnir);
 

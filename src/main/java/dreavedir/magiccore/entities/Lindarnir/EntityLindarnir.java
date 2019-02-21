@@ -1,5 +1,6 @@
 package dreavedir.magiccore.entities.Lindarnir;
 
+import dreavedir.magiccore.MagicCore;
 import dreavedir.magiccore.utils.Dimensions;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -22,8 +23,13 @@ public class EntityLindarnir extends EntityCreature {
 
     @Override
     protected void initEntityAI() {
-        this.tasks.addTask(1, new LindarnirAIFollow(this, 0.5D, 10.0F, 2));
-        this.tasks.addTask(1, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+        this.tasks.addTask(1, new LindarnirAIFollow(this, 0.5D, 8.0F, 2));
+        this.tasks.addTask(2, new EntityAIWatchClosest(this, EntityPlayer.class, 6.0F));
+    }
+
+    @Override
+    protected boolean canDespawn() {
+        return false;
     }
 
     @Override
