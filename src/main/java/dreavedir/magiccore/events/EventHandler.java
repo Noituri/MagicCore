@@ -17,11 +17,14 @@ import net.minecraft.entity.IEntityLivingData;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.TextComponentTranslation;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -96,11 +99,23 @@ public class EventHandler {
         chapters.setCurrentChapter(oldChapters.getCurrentChapter());
     }
 
-//    @SubscribeEvent
-//    public void onEntityHurt(LivingHurtEvent event) {
-//        if (event.getEntityLiving() instanceof EntityLindarnir)
-//            if (event.isCancelable())
-//                event.setCanceled(true);
-//    }
+    @SubscribeEvent
+    public void onEntityRightClick(PlayerInteractEvent.EntityInteract event) {
+        EntityPlayer player =  event.getEntityPlayer();
+        if (player == null) return;
+        if (player.getEntityWorld().isRemote) return;
+
+        if (event.getTarget() instanceof EntityLindarnir && event.getHand() == EnumHand.MAIN_HAND) {
+            player.sendMessage(new TextComponentTranslation(ChatFormatting.DARK_GREEN + "Get Eodenor's Book"));
+            event.getTarget().setDead();
+        }
+    }
+
+    @SubscribeEvent
+    public void onEntityHurt(LivingHurtEvent event) {
+        if (event.getEntityLiving() instanceof EntityLindarnir)
+            if (event.isCancelable())
+                event.setCanceled(true);
+    }
 
 }
