@@ -16,7 +16,9 @@ public class Messages {
     public static void registerMessages(String channel) {
         INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(channel);
 
+        // Client
         INSTANCE.registerMessage(PacketSendMessage.Handler.class, PacketSendMessage.class, nextID(), Side.CLIENT);
+        INSTANCE.registerMessage(PacketParticleEntityLindarnir.Handler.class, PacketParticleEntityLindarnir.class, nextID(), Side.CLIENT);
     }
 
 }

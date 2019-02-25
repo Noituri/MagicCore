@@ -113,9 +113,12 @@ public class EventHandler {
 
     @SubscribeEvent
     public void onEntityHurt(LivingHurtEvent event) {
-        if (event.getEntityLiving() instanceof EntityLindarnir)
+        if (event.getEntityLiving() instanceof EntityLindarnir) {
+            ((EntityLindarnir) event.getEntityLiving()).setHurt(true);
             if (event.isCancelable())
                 event.setCanceled(true);
+        }
+
     }
 
 }
