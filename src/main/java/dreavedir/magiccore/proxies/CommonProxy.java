@@ -18,7 +18,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.CapabilityManager;
+import net.minecraftforge.common.config.Config;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
@@ -50,6 +53,12 @@ public class CommonProxy {
 
     }
 
+    @SubscribeEvent
+    public void onConfigChangedEvent(ConfigChangedEvent.OnConfigChangedEvent event) {
+        if (event.getModID().equals(MODID)) {
+            ConfigManager.sync(MODID, Config.Type.INSTANCE);
+        }
+    }
 
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
