@@ -8,12 +8,15 @@ import dreavedir.magiccore.chapters.IChapters;
 import dreavedir.magiccore.entities.Lindarnir.capability.ILindarnir;
 import dreavedir.magiccore.entities.Lindarnir.capability.LindarnirDefaults;
 import dreavedir.magiccore.events.CapabilityEventHandler;
-import dreavedir.magiccore.items.ItemEodenorsBook;
+import dreavedir.magiccore.items.EodenorsBook.GuiEodenorsBook;
+import dreavedir.magiccore.items.EodenorsBook.ItemEodenorsBook;
 import dreavedir.magiccore.network.Messages;
 import dreavedir.magiccore.storage.ChaptersStorage;
 import dreavedir.magiccore.storage.LindarnirStorage;
+import dreavedir.magiccore.utils.GuiEnums;
 import dreavedir.magiccore.worldgen.WorldGen;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.common.MinecraftForge;
@@ -74,6 +77,10 @@ public class CommonProxy {
                 new ItemMagicHeartShard(),
                 new ItemEodenorsBook()
         );
+    }
+
+    public void openGui(GuiEnums.GUITYPE which) {
+
     }
 
 }

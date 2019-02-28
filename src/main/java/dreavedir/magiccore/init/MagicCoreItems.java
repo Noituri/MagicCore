@@ -1,6 +1,6 @@
 package dreavedir.magiccore.init;
 
-import dreavedir.magiccore.items.ItemEodenorsBook;
+import dreavedir.magiccore.items.EodenorsBook.ItemEodenorsBook;
 import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

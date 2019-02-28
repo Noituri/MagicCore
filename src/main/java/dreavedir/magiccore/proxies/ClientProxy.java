@@ -4,6 +4,9 @@ import dreavedir.magiccore.init.MagicCoreBlocks;
 import dreavedir.magiccore.init.MagicCoreEntities;
 import dreavedir.magiccore.init.MagicCoreItems;
 import dreavedir.magiccore.events.OverlayRenderHandler;
+import dreavedir.magiccore.items.EodenorsBook.GuiEodenorsBook;
+import dreavedir.magiccore.utils.GuiEnums;
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -40,4 +43,11 @@ public class ClientProxy extends CommonProxy {
         MagicCoreEntities.initModels();
     }
 
+    @Override
+    public void openGui(GuiEnums.GUITYPE which) {
+        switch (which) {
+            case EODENORS_BOOK:
+                Minecraft.getMinecraft().displayGuiScreen(new GuiEodenorsBook());
+        }
+    }
 }
